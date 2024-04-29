@@ -35,15 +35,15 @@ This project is an API that when passed a valid Github User username, will retur
    *Replace the version in the filename with the version of your JAR file.*
 
 ## Testing and Usage
-1. Open a web browser or use a tool like Postman to send requests to the API endpoint.
-    Example Browser URL: http://localhost:8080/user-info/octocat 
+1. Open a web browser or use a tool like **Postman** to send requests to the API endpoint. <br/>Example Browser URL: http://localhost:8080/user-info/octocat
+2. You can check out the API using **Swagger Documentation** as well. <br>Go to this link in your browser and "Try it out": http://localhost:8080/swagger-ui/index.html 
    
-2. Powershell Example:
+3. Powershell Example:
    ```bash
    $response = Invoke-RestMethod 'localhost:8080/user-info/octocat' -Method 'GET' -Headers $headers
    $response | ConvertTo-Json
    ```
-3. Curl Example:
+4. Curl Example:
    ```bash
    curl --location 'localhost:8080/user-info/kwiknick'
    ```

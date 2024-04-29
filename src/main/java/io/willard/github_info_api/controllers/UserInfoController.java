@@ -2,7 +2,6 @@ package io.willard.github_info_api.controllers;
 
 import io.willard.github_info_api.models.GithubCombinedUserInfo;
 import io.willard.github_info_api.services.UserService;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import org.apache.logging.log4j.LogManager;
@@ -33,7 +32,7 @@ public class UserInfoController {
 
 
     @GetMapping(value = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<GithubCombinedUserInfo> getUserInfo(@Valid @PathVariable
+    public ResponseEntity<GithubCombinedUserInfo> getUserInfo(@PathVariable
                                                                 @NotBlank
                                                                 @Pattern(regexp = "^(?!.*--)[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*$",
                                                                          message = "The supplied username is not valid. Only Alphnumerical and Single Hyphens are allowed.")
