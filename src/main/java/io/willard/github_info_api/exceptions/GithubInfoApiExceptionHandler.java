@@ -13,6 +13,13 @@ import org.springframework.web.client.HttpClientErrorException;
 public class GithubInfoApiExceptionHandler {
     private static final Logger log = LogManager.getLogger();
 
+    @ExceptionHandler(GithubInfoApiException.class)
+    public ResponseEntity<GithubInfoApiErrorResponse> handleGithubInfoApiException(GithubInfoApiException ex) {
+        log.error("GithubInfoApiException was caught", ex);
+        GithubInfoApiErrorResponse response = new GithubInfoApiErrorResponse(ex.getErrorCode());
+        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
     @ExceptionHandler(HttpClientErrorException.class)
     public final ResponseEntity<Object> handleException(HttpClientErrorException ex) {
         log.error("HttpClientErrorException was caught", ex);
